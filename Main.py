@@ -99,48 +99,36 @@ printer.purgeSerial()
 #enter all the required variables to begin the test phase
 print("enter all required values to begin the experiment")
 
-# output_property=input("give me the output property of the sensor (Pressure for example)(string):")
-# output_unit= input("give me the unit of the output property (Pascal for example)(string):")
-# axe=input("each axe you want? x,y or z:")
-# begin=int(input("Give me the first position that you want to begin the traction phase (integer between 0 and 305 in mm):"))
-# lo=int(input("Give me the initial lenght of the sensor:"))#length in mm
-# max_strain= float(input("give me the maximum strain that you want (0.5 for example, the value should be between 0 and 1):"))
-# end=float(begin+ max_strain*lo)
-# step=float(input("Give me please the step between each measurement in mm (float): "))
-# delay=float(input("Give me please the delay between each measurement in sec (float): "))
-# pause=float(input("Give me the delay between the two phases in sec:"))
-# sensor_version= input("Give me the sensor version ( ex:Sensor1 ) (string) to put it in the name of the csv file:")
-# cycle_number=input("Give me the cycle number ( ex:Cycle1 ) (string) to put it in the name of the csv file:")
-
-output_property="S"
-output_unit= "kPa"
-axe="y"
-begin=198
-lo=48
-max_strain= 0.5
+output_property=input("give me the output property of the sensor (Pressure for example)(string):")
+output_unit= input("give me the unit of the output property (Pascal for example)(string):")
+axe=input("each axe you want? x,y or z:")
+begin=int(input("Give me the first position that you want to begin the traction phase (integer between 0 and 305 in mm):"))
+lo=int(input("Give me the initial lenght of the sensor:"))#length in mm
+max_strain= float(input("give me the maximum strain that you want (0.5 for example, the value should be between 0 and 1):"))
 end=float(begin+ max_strain*lo)
-step=2
-delay=1
-pause=1
-sensor_version= "S1"
-cycle_number="C1"
+step=float(input("Give me please the step between each measurement in mm (float): "))
+delay=float(input("Give me please the delay between each measurement in sec (float): "))
+pause=float(input("Give me the delay between the two phases in sec:"))
+sensor_version= input("Give me the sensor version ( ex:Sensor1 ) (string) to put it in the name of the csv file:")
+cycle_number=input("Give me the cycle number ( ex:Cycle1 ) (string) to put it in the name of the csv file:")
+
 
 csv_file_name= "./csv/"+cycle_number+ "_" + sensor_version + "_" + str(begin)+ "_" + str(end)+ "_" + str(max_strain*100)+ "_" + str(step)+ "_" + str(delay)+ "sec_" + str(pause)+ "sec.csv" 
 
 print(" All inputs are specified !")
 
 #Move the printer into the first position
-print("Click on f to go to the first position")
+
 # wait_for_key("f")
-value = input("Press Enter to continue:\n")
+value = input("Press go to the first position:\n")
 
 aq.ChooseAxe(printer,axe)
 aq.Move(printer,axe,begin)
 
 #Traction phase
-print("To begin the traction click on t:")
+
 # wait_for_key("t")
-value = input("Press Enter to continue:\n")
+value = input("Press Enter to To begin the traction:\n")
 
 printer_positions_traction,sensor_positions_traction,volts_traction,t1=aq.TestPhaseAcquisition(printer,testsensor,Distance_Sensor,output_property,output_unit,axe,begin,end,step,delay)
 
@@ -181,9 +169,9 @@ plt.xlabel('printer_strain')
 plt.ylabel(output_property+"("+output_unit+")")
 plt.legend()
 
-print("click on c, to create a .csv file")
+
 # wait_for_key("c")
-value = input("Press Enter to continue:\n")
+value = input("Press Enter to create a .csv file")
 
 #Create the .csv file
 title=["printer Position Traction (mm)","Sensor Position Traction (mm)",output_property+" Traction("+output_unit+")",
