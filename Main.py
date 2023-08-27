@@ -87,11 +87,11 @@ time.sleep(2)
 
 print("the sensors and the printers are initialized")
 
-print(" Click on h and Begin the homing movement")
+
 
 #Homing
 # wait_for_key("h") # working with Spyder only
-value = input("Press Enter to continue:\n")
+value = input("Press Enter to Begin the homing movement:\n")
 
 printer.home()
 printer.purgeSerial()
@@ -120,7 +120,7 @@ print(" All inputs are specified !")
 #Move the printer into the first position
 
 # wait_for_key("f")
-value = input("Press go to the first position:\n")
+value = input("Press Enter to go to the first position:\n")
 
 aq.ChooseAxe(printer,axe)
 aq.Move(printer,axe,begin)
