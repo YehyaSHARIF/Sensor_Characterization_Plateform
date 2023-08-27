@@ -1,0 +1,15 @@
+﻿[submodule "cr10"]
+	path = cr10
+	url = https://gitlab.inria.fr/defrost/hardware/cr10.git # https ! how to manage compatibility between ssh ?
+	
+[submodule "hc-c1100-p"]
+	path = hc-c1100-p
+	url = https://gitlab.inria.fr/defrost/hardware/hc-c1100-p.git
+	
+[submodule "mpx4250dp"]
+	path = mpx4250dp
+	url = https://gitlab.inria.fr/defrost/hardware/mpx4250dp.git
+	
+# [submodule "libbar"]
+# 	path = include/bar
+# 	url = git://bar.com/git/lib.git
