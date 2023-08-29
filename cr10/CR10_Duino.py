@@ -1,13 +1,20 @@
+"""
+Auteur : Stefan 
+Contact : paul.chaillou@inria.fr
+Année : 2021
+"""
+
+
 import numpy as np
 import serial
 import time
 
 class SerialDuino:
 
-    def __init__(self):
+    def __init__(self,port = '/dev/ttyUSB0',baud = 115200):
         # PARAM7TRES
-        self.port = '/dev/ttyUSB0'
-        self.baud = 115200
+        self.port = port
+        self.baud = baud
 
         #INIT
         self.ser = serial.Serial(self.port,self.baud, timeout = 0.1) 
